@@ -1,3 +1,6 @@
+import requests
+
+
 def unique_names_of_teaches(mentors) -> str:
     all_list = []
     for m in mentors:
@@ -75,3 +78,21 @@ def is_there_relationship(courses, mentors, durations) -> tuple:
     sorting_by_quantity = f"Порядок курсов по количеству преподавателей: {indexes_m}"
 
     return relationship, sorting_by_duration, sorting_by_quantity
+
+
+def create_folder(url, path, token):
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'OAuth {}'.format(token)
+    }
+    response = requests.put(url, headers=headers, params={'path': path})
+    return response
+
+
+def check_folder(url, path, token):
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'OAuth {}'.format(token)
+    }
+    response = requests.get(url, headers=headers, params={'path': path})
+    return response
