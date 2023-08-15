@@ -1,9 +1,12 @@
+import os
 import pytest
+from dotenv import load_dotenv
 from tasks_foo import unique_names_of_teaches, short_and_long, is_there_relationship, create_folder, check_folder
 import data_task_1_1 as d1
 import data_task_1_2 as d2
 import data_task_1_3 as d3
 
+load_dotenv()
 
 # TASK_1
 @pytest.mark.parametrize(
@@ -53,7 +56,7 @@ def test_is_there_relationship(mentors, durations, expected):
 url_1 = "https://cloud-api.yandex.net/v1/disk/resources" # корректный url
 url_2 = "https://cloud-api.yandex.net/disk/resources" # не корректный url (404)
 
-token_1 = 'укажите корректный токен' # корректный токен
+token_1 = os.getenv('yd_token') # корректный токен
 token_2 = 'y0_AgAAAAABSEDuAADLWwAAAADi8j6CmHzAb6WNSFuHd3Vip8Dfr0' # не корректный токен (401)
 
 path_1 = 'test_folder_1' # корректное название папки

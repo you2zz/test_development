@@ -14,6 +14,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from fake_useragent import UserAgent
+from dotenv import load_dotenv
+
+load_dotenv()
 
 useragent = UserAgent()
 
