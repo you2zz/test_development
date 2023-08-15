@@ -76,7 +76,7 @@ def test_create_folder(url, token, path, expected):
 @pytest.mark.parametrize(
     'path, expected',
     [
-        ('test_folder_1', 200), # ранее созданная папка существует
+        ('test_folder_1', 200), # проверка созданной папки
         ('test_folder_2', 404)  # запрос к несуществующей папке
     ]
 )
