@@ -1,3 +1,4 @@
+import os
 import time
 import random
 # from selenium import webdriver
@@ -33,14 +34,21 @@ try:
     browser.get(url=url)
     time.sleep(5)
 
+    push_choise = browser.find_element(By.CLASS_NAME, "AuthLoginInputToggle-type").click()
     email_input = browser.find_element(By.ID, "passp-field-login")
     email_input.clear()
     email_input.send_keys("yv-test")
     time.sleep(5)
-
-    # browser.refresh()
-    # browser.save_screenshot('p_yangex.png')
-    # time.sleep(5)
+    push_login_button = browser.find_element(By.ID, "passp:sign-in").click()
+    time.sleep(5)
+    pass_input = browser.find_element(By.ID, "passp-field-passwd")
+    pass_input.clear()
+    pass_input.send_keys(os.getenv("y_log"))
+    time.sleep(5)
+    push_pass_button = browser.find_element(By.ID, "passp:sign-in").click()
+    time.sleep(5)
+    push_personal_button = browser.find_element(By.ID, "passp:sign-in").click()
+    time.sleep(5)
 except Exception as ex:
     print(ex)
 finally:
