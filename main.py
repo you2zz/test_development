@@ -9,6 +9,7 @@ def get_dict():
 def get_list():
     return [1, 2, 3, 4]
 
+
 #1
 # res = summarize(10, 20)
 # expected = 30
